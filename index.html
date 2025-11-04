@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmarking Web Components vs React components wrapped in Web Components</title>
+  
+  <link rel="stylesheet" href="https://ux.redhat.com/styles/reset.css">
+  <link rel="stylesheet" href="/assets/rhds/fonts.css">
+  <link rel="stylesheet" href="/assets/rhds/tokens.css">
+  <link rel="stylesheet" href="/assets/rhds/typography.css">
+  <link href="https://cdn.jsdelivr.net/npm/@rhds/elements@3.1.1/elements/rh-tile/rh-tile-lightdom.css" rel="stylesheet">
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "@rhds/elements/": "/assets/rhds/dependencies/@rhds/elements/elements/"
+      },
+      "scopes": {
+        "assets/rhds/dependencies/": {
+            "@lit/context": "/assets/rhds/dependencies/@lit/context/development/index.js",
+            "@lit/reactive-element": "/assets/rhds/dependencies/@lit/reactive-element/reactive-element.js",
+            "@lit/reactive-element/decorators/": "/assets/rhds/dependencies/@lit/reactive-element/decorators/",
+            "@patternfly/pfe-core": "/assets/rhds/dependencies/@patternfly/pfe-core/core.js",
+            "@patternfly/pfe-core/": "/assets/rhds/dependencies/@patternfly/pfe-core/",
+            "@rhds/elements/lib/": "/assets/rhds/dependencies/@rhds/elements/lib/",
+            "@rhds/icons": "/assets/rhds/dependencies/@rhds/icons/icons.js",
+            "@rhds/icons/": "/assets/rhds/dependencies/@rhds/icons/",
+            "@rhds/tokens/media.js": "/assets/rhds/dependencies/@rhds/tokens/js/media.js",
+            "@rhds/tokens/": "/assets/rhds/dependencies/@rhds/tokens/",
+            "lit": "/assets/rhds/dependencies/lit/index.js",
+            "lit/": "/assets/rhds/dependencies/lit/",
+            "lit-element/lit-element.js": "/assets/rhds/dependencies/lit-element/lit-element.js",
+            "lit-html": "/assets/rhds/dependencies/lit-html/lit-html.js",
+            "lit-html/": "/assets/rhds/dependencies/lit-html/",
+            "tslib": "/assets/rhds/dependencies/tslib/tslib.es6.js"
+        }
+      }
+    }
+  </script>
+
+  <script type="module">
+    import "@rhds/elements/rh-tile/rh-tile.js";
+  </script>
+
+  <style>
+    main {
+        margin: var(--rh-space-2xl) auto;
+        max-width: 1440px;
+    }
+
+    h1 {
+        margin-block-end: var(--rh-space-2xl);
+        font-size: var(--rh-font-size-heading-lg);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--rh-space-2xl);
+        margin-block-end: 3rem;
+    }
+  </style>
+
+</head>
+<body>
+  <main>
+    <h1>Benchmarking Web Components vs React components wrapped in Web Components</h1>
+    <div class="grid">
+        <rh-tile>
+            <h2 slot="headline"><a href="rhds.html">RHDS Web Components</a></h2>
+        </rh-tile>
+        <rh-tile>
+            <h2 slot="headline"><a href="pf-react.html">PF React wrapped in a Web Component</a></h2>
+        </rh-tile>
+    </div>
+  </main>
+</body>
+</html>
