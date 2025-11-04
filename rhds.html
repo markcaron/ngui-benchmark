@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Components NGUI Demo</title>
+  
+  <link rel="stylesheet" href="./assets/rhds/normalize.min.css">
+  <link rel="stylesheet" href="./assets/rhds/tokens.css">
+  <link rel="stylesheet" href="./assets/rhds/pf-theming.css">
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "@rhds/elements/": "./node_modules/@rhds/elements/elements/"
+      },
+      "scopes": {
+        "node_modules/": {
+            "@lit/context": "./node_modules/@lit/context/development/index.js",
+            "@lit/reactive-element": "./node_modules/@lit/reactive-element/reactive-element.js",
+            "@lit/reactive-element/decorators/": "./node_modules/@lit/reactive-element/decorators/",
+            "@patternfly/pfe-core": "./node_modules/@patternfly/pfe-core/core.js",
+            "@patternfly/pfe-core/": "./node_modules/@patternfly/pfe-core/",
+            "@rhds/elements/lib/": "./node_modules/@rhds/elements/lib/",
+            "@rhds/icons": "./node_modules/@rhds/icons/icons.js",
+            "@rhds/icons/": "./node_modules/@rhds/icons/",
+            "@rhds/tokens/media.js": "./node_modules/@rhds/tokens/js/media.js",
+            "@rhds/tokens/": "./node_modules/@rhds/tokens/",
+            "lit": "./node_modules/lit/index.js",
+            "lit/": "./node_modules/lit/",
+            "lit-element/lit-element.js": "./node_modules/lit-element/lit-element.js",
+            "lit-html": "./node_modules/lit-html/lit-html.js",
+            "lit-html/": "./node_modules/lit-html/",
+            "tslib": "./node_modules/tslib/tslib.es6.mjs"
+        }
+      }
+    }
+  </script>
+
+  <script type="module">
+    import "@rhds/elements/rh-card/rh-card.js";
+  </script>
+
+</head>
+<body>
+  <rh-card>
+    <img slot="image" src="./assets/pf-logo.png" alt="Server Information">
+    <h2 slot="header">Server Information</h2>
+    <dl>
+      <div>
+        <dt>Hostname</dt>
+        <dd>server-01.example.com</dd>
+      </div>
+      <div>
+        <dt>IP Address</dt>
+        <dd>192.168.1.100</dd>
+      </div>
+      <div>
+        <dt>Status</dt>
+        <dd>Running</dd>
+      </div>
+      <div>
+        <dt>Uptime</dt>
+        <dd>45 days</dd>
+      </div>
+    </dl>
+  </rh-card>
+</body>
+</html>

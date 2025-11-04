@@ -1,0 +1,101 @@
+/* PatternFly CSS to make the card look like the React NGUI card demo */
+/* Probably could be a lot cleaner and use PF tokens more accurately, but that doesn't detract from the very real ability to theme RH Cards to look like PF Cards */
+:root {
+    --ngui-container-max-width: 1440px;
+    --pf-t--global--border--radius--medium: 16px;
+    --pf-v6-c-title--m-lg--FontSize: 1.125rem;
+    --pf-v6-c-title--m-lg--FontWeight: 500;
+    --pf-v6-c-title--m-lg--LineHeight: 1.3;
+    --pf-t--global--font--size--body--default: 0.875rem;
+    --pf-t--global--spacer--md: 16px;
+    --pf-v6-c-card--child--Padding: 1.5rem;
+    --pf-t--global--border--color--default: #676767;
+    --pf-v6-c-description-list--m-auto-fit--GridTemplateColumns--minmax--min: 120px;
+    --pf-v6-c-description-list__group--GridTemplateRows: auto;
+    --pf-v6-c-description-list__group--GridTemplateColumns: auto;
+    --pf-v6-c-description-list__group--GridColumn: auto;
+    --pf-v6-c-description-list__group--RowGap: .5rem;
+    --pf-v6-c-description-list__group--ColumnGap: 1rem;
+    --pf-v6-c-description-list--RowGap: 1.5rem;
+    --pf-v6-c-description-list--ColumnGap: 3rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+rh-card {
+    max-width: var(--ngui-container-max-width);
+    margin: 0 auto;
+    --rh-border-width-lg: var(--pf-t--global--border--radius--medium);
+    --rh-card-heading-font-size: var(--pf-v6-c-title--m-lg--FontSize);
+    font-size: var(--pf-t--global--font--size--body--default);
+
+    &::part(container) {
+        display: grid;
+        grid-template-areas: 'image' 'header' 'body' 'footer';
+        grid-template-columns: 1fr;
+        place-items: start stretch;
+        row-gap: var(--pf-v6-c-card--child--Padding);
+    }
+
+    &::part(header) {
+        margin-block-start: var(--pf-v6-c-card--child--Padding);
+        padding-block-end: var(--pf-t--global--spacer--md);
+        border-bottom: 1px solid var(--rh-color-border-subtle);
+        font-size: var(--pf-v6-c-title--m-lg--FontSize);
+        font-weight: var(--pf-v6-c-title--m-lg--FontWeight);
+        line-height: var(--pf-v6-c-title--m-lg--LineHeight);
+    }
+
+    &::part(image) {
+        grid-area: image;
+        flex-basis: 20%;
+        max-width: 100px;
+        padding: var(--pf-v6-c-card--child--Padding);
+    }
+
+    &::part(body) {
+        margin-block: 0;
+    }
+
+    @container (min-width: 576px) {
+        &::part(container) {
+            grid-template-areas: 'image header' 'image body' 'image footer';
+            grid-template-columns: calc(100px + calc(var(--pf-v6-c-card--child--Padding) * 2)) auto;
+        }
+
+        &::part(header),
+        &::part(body) {
+            margin-inline-start: 0;
+        }
+    }     
+    
+    dl {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(var(--pf-v6-c-description-list--m-auto-fit--GridTemplateColumns--minmax--min), 1fr));
+        row-gap: var(--pf-v6-c-description-list--RowGap);
+        column-gap: var(--pf-v6-c-description-list--ColumnGap);
+        align-items: baseline;
+        margin: 0;
+        padding: 0;
+
+        div {
+            display: grid;
+            grid-template-rows: var(--pf-v6-c-description-list__group--GridTemplateRows);
+            grid-template-columns: var(--pf-v6-c-description-list__group--GridTemplateColumns);
+            grid-column: var(--pf-v6-c-description-list__group--GridColumn);
+            row-gap: var(--pf-v6-c-description-list__group--RowGap);
+            column-gap: var(--pf-v6-c-description-list__group--ColumnGap);
+            align-items: baseline;
+        }
+
+        & dt {
+            font-weight: var(--pf-v6-c-title--m-lg--FontWeight);
+        }
+        
+        & dd {
+            margin: 0;
+        }
+    }
+}
