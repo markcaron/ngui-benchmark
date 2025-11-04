@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "rm -rf assets/rhds/dependencies && mkdir -p assets/rhds/dependencies && cp -r node_modules/* assets/rhds/dependencies/"
+  },
   "dependencies": {
     "@rhds/elements": "^4.0.0"
   }
